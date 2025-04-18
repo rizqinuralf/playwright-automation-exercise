@@ -27,20 +27,20 @@ export class LoginPage {
     await this.page.goto('https://automationexercise.com/login');
   }
 
-  async login(email:string, password:string){
+  async login(userData:any){
     await this.goto()
     await expect(this.loginForm).toHaveText('Login to your account')
-    await this.loginEmailField.fill(email)
-    await this.passwordField.fill(password)
+    await this.loginEmailField.fill(userData.email)
+    await this.passwordField.fill(userData.password)
     await this.loginButton.click()
     await expect(this.page).toHaveURL('https://automationexercise.com/')
   }
 
-  async signUpAccess(email:string, name:string){
+  async signUpAccess(userData:any){
     await this.goto()
     await expect(this.signUpButton).toBeVisible()
-    await this.nameField.fill(name)
-    await this.signUpEmailField.fill(email)
+    await this.nameField.fill(userData.name)
+    await this.signUpEmailField.fill(userData.email)
     await this.signUpButton.click()
     await expect(this.page).toHaveURL('https://automationexercise.com/signup')
   }

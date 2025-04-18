@@ -68,23 +68,21 @@ export class SignUpPage {
     }
   }
 
-  async signUpProcess(option:number, password:string, dayOfBirth:string, monthOfBirth:string, 
-    yearOfBirth:string, firstName:string, lastName:string, companyName:string, address:string, country:string, 
-    state:string, city:string, zipCode:string, mobileNumber:string){
-    await this.choosingTitle(option);
-    await this.passwordField.fill(password)
-    await this.dayOfBirth.selectOption(dayOfBirth)
-    await this.monthOfBirth.selectOption(monthOfBirth)
-    await this.yearOfBirth.selectOption(yearOfBirth)
-    await this.firstNameField.fill(firstName)
-    await this.lastNameField.fill(lastName)
-    await this.companyNameField.fill(companyName)
-    await this.addressField.fill(address)
-    await this.countryField.selectOption(country)
-    await this.stateField.fill(state)
-    await this.cityField.fill(city)
-    await this.zipCodeField.fill(zipCode)
-    await this.mobileNumberField.fill(mobileNumber)
+  async signUpProcess(userData:any){
+    await this.choosingTitle(userData.title);
+    await this.passwordField.fill(userData.password)
+    await this.dayOfBirth.selectOption(userData.dayOfBirth)
+    await this.monthOfBirth.selectOption(userData.monthOfBirth)
+    await this.yearOfBirth.selectOption(userData.yearOfBirth)
+    await this.firstNameField.fill(userData.firstName)
+    await this.lastNameField.fill(userData.lastName)
+    await this.companyNameField.fill(userData.companyName)
+    await this.addressField.fill(userData.address)
+    await this.countryField.selectOption(userData.country)
+    await this.stateField.fill(userData.state)
+    await this.cityField.fill(userData.city)
+    await this.zipCodeField.fill(userData.zipCode)
+    await this.mobileNumberField.fill(userData.mobileNumber)
     await this.createAccountButton.click()
     await expect(this.page).toHaveURL('https://automationexercise.com/account_created')
     await this.continueButton.click()
