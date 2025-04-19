@@ -1,11 +1,12 @@
 import { Page,Locator } from "@playwright/test";
 
-export class Navbar {
+export class Dashboard {
     readonly page: Page;
     readonly homeButton: Locator;
     readonly productButton: Locator;
     readonly cartButton: Locator;
     readonly logoutButton: Locator;
+    readonly loginButton: Locator;
     readonly deleteAccountButton: Locator;
     readonly loggedInAs: Locator;
   
@@ -14,6 +15,7 @@ export class Navbar {
         this.productButton = page.locator('[href="/products"]')
         this.cartButton = page.locator('[href="/view_cart"]')
         this.logoutButton = page.locator('[href="/logout"]')
+        this.loginButton = page.locator('[href="/login"]')
         this.deleteAccountButton = page.locator('[href="/delete_account"]')
         this.loggedInAs = page.locator('[class="fa fa-user"]')
     }

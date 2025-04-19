@@ -37,7 +37,8 @@ export class LoginPage {
   }
 
   async signUpAccess(userData:any){
-    await this.goto()
+    // await this.goto()
+    await expect(this.page.getByText('New User Signup!')).toBeVisible()
     await expect(this.signUpButton).toBeVisible()
     await this.nameField.fill(userData.name)
     await this.signUpEmailField.fill(userData.email)

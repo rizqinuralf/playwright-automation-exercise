@@ -11,6 +11,8 @@ export class SignUpPage {
   readonly dayOfBirth: Locator;
   readonly monthOfBirth: Locator;
   readonly yearOfBirth: Locator;
+  readonly newsletterCheckbox: Locator;
+  readonly optinCheckbox: Locator;
   readonly firstNameField: Locator;
   readonly lastNameField: Locator;
   readonly companyNameField: Locator;
@@ -35,6 +37,8 @@ export class SignUpPage {
     this.dayOfBirth = page.locator('#days');
     this.monthOfBirth = page.locator('#months');
     this.yearOfBirth = page.locator('#years');
+    this.newsletterCheckbox = page.getByRole('checkbox',{name:'newsletter'});
+    this.optinCheckbox = page.locator('#optin');
     this.firstNameField = page.locator('#first_name');
     this.lastNameField = page.locator('#last_name');
     this.companyNameField = page.locator('#company');
@@ -69,23 +73,29 @@ export class SignUpPage {
   }
 
   async signUpProcess(userData:any){
+    await expect(this.page.getByText('ENTER ACCOUNT INFORMATION')).toBeVisible()
     await this.choosingTitle(userData.title);
     await this.passwordField.fill(userData.password)
     await this.dayOfBirth.selectOption(userData.dayOfBirth)
     await this.monthOfBirth.selectOption(userData.monthOfBirth)
     await this.yearOfBirth.selectOption(userData.yearOfBirth)
+    await this.newsletterCheckbox.check()
+    await this.optinCheckbox.check()
     await this.firstNameField.fill(userData.firstName)
     await this.lastNameField.fill(userData.lastName)
     await this.companyNameField.fill(userData.companyName)
     await this.addressField.fill(userData.address)
+    await this.furtherAddressField.fill(userData.address2)
     await this.countryField.selectOption(userData.country)
     await this.stateField.fill(userData.state)
     await this.cityField.fill(userData.city)
     await this.zipCodeField.fill(userData.zipCode)
     await this.mobileNumberField.fill(userData.mobileNumber)
     await this.createAccountButton.click()
+    await expect(this.page.getByText('ACCOUNT CREATED!')).toBeVisible()
     await expect(this.page).toHaveURL('https://automationexercise.com/account_created')
     await this.continueButton.click()
     await expect(this.page).toHaveURL('https://automationexercise.com/')
+    await expect(this.page.getByText(`Logged in as ${userData.name}`)).toBeVisible()
   }
 }

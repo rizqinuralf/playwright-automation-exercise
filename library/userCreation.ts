@@ -21,6 +21,7 @@ export function generateUser() {
         lastName: faker.person.lastName(),
         companyName: faker.company.name(),
         address: faker.location.streetAddress(),
+        address2: faker.location.secondaryAddress(),
         country: faker.helpers.arrayElement(countries),
         state: faker.location.state(),
         city: faker.location.city(),
