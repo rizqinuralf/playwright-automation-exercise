@@ -51,6 +51,7 @@ export class SignUpPage {
     this.mobileNumberField = page.locator('#mobile_number');
     this.createAccountButton = page.locator('[data-qa="create-account"]');
     this.continueButton = page.locator('[data-qa="continue-button"]');
+    this.accountDeletedMessage = page.getByText('ACCOUNT DELETED!');
   }
 
   /**

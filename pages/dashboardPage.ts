@@ -18,5 +18,9 @@ export class Dashboard {
         this.loginButton = page.locator('[href="/login"]')
         this.deleteAccountButton = page.locator('[href="/delete_account"]')
         this.loggedInAs = page.locator('[class="fa fa-user"]')
+        this.homePageLogo = page.locator('img[alt="Website for automation practice"]')
+        this.featuresItemsHeading = page.getByText('Features Items');
+        this.recommendedItemsHeading = page.getByText('recommended items');
+        this.subscriptionHeading = page.getByText('Subscription');
     }
 }

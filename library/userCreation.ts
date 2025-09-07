@@ -11,7 +11,7 @@ const countries = [
 
 export function generateUser() {
     const userData = {
-        email: faker.internet.email(),
+        email: faker.internet.userName() + '@yopmail.com',
         title: faker.number.int({min:1,max:2}),
         password: faker.internet.password(),
         dayOfBirth: faker.number.int({min:1,max:20}).toString(),

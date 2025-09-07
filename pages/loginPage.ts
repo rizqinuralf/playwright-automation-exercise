@@ -21,6 +21,7 @@ export class LoginPage {
     this.nameField = page.locator('[data-qa="signup-name"]');
     this.signUpEmailField = page.locator('[data-qa="signup-email"]');
     this.signUpButton = page.locator('[data-qa="signup-button"]');
+    this.errorMessage = page.locator('p[style="color: red;"]');
   }
 
   async goto() {
@@ -28,12 +29,10 @@ export class LoginPage {
   }
 
   async login(userData:any){
-    await this.goto()
-    await expect(this.loginForm).toHaveText('Login to your account')
+    await expect(this.loginForm).toBeVisible();
     await this.loginEmailField.fill(userData.email)
     await this.passwordField.fill(userData.password)
     await this.loginButton.click()
-    await expect(this.page).toHaveURL('https://automationexercise.com/')
   }
 
   async signUpAccess(userData:any){

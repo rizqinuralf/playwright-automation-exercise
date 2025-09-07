@@ -14,8 +14,8 @@ This is a Playwright-based end-to-end testing project for the website https://au
 
 **Architecture:**
 
-*   **`tests/`**: Contains the test files (e.g., `signUp.test.ts`).
-*   **`pages/`**: Contains the page object files (e.g., `signUpPage.ts`, `loginPage.ts`). Each file represents a page on the website and encapsulates the locators and methods for interacting with that page.
+*   **`tests/`**: Contains the test files (e.g., `signUp.test.ts`, `loginUser.test.ts`, `products.test.ts`, `cart.test.ts`, `checkout.test.ts`, `uiVerification.test.ts`).
+*   **`pages/`**: Contains the page object files (e.g., `signUpPage.ts`, `loginPage.ts`, `productsPage.ts`, `contactUsPage.ts`, `testCasesPage.ts`, `cartPage.ts`, `checkoutPage.ts`). Each file represents a page on the website and encapsulates the locators and methods for interacting with that page.
 *   **`library/`**: Contains helper functions, such as `userCreation.ts` for generating test data.
 *   **`config/`**: Contains configuration files, such as `.env` for environment variables.
 *   **`playwright.config.ts`**: The main configuration file for Playwright.

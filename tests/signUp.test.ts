@@ -21,15 +21,20 @@ test.describe('Running Test Cases from Automation Exercise', () => {
   test('Register User', async ({ page }) => {
 
     await page.goto('/');
-    await expect(
-      page.locator('img[alt="Website for automation practice"]')
-    ).toBeVisible();
+    await expect(dashboard.homePageLogo).toBeVisible();
     await dashboard.loginButton.click();
     await loginPage.signUpAccess(user);
     await signUpPage.signUpProcess(user);
-    await dashboard.deleteAccountButton.click();
-    await expect(page.getByText('ACCOUNT DELETED!')).toBeVisible();
-    await signUpPage.continueButton.click();
+    await expect(dashboard.logoutButton).toBeVisible();
+    await dashboard.logoutButton.click();
+  });
+
+  test('Register User with existing email', async ({ page }) => {
+    await page.goto('/');
+    await expect(dashboard.homePageLogo).toBeVisible();
+    await dashboard.loginButton.click();
+    await loginPage.signUpAccess(user);
+    await expect(loginPage.errorMessage).toHaveText('Email Address already exist!');
   });
 
 
