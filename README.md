@@ -51,9 +51,6 @@ The test suite is written against [Automation Exercise](https://automationexerci
 - TypeScript for static typing and better tooling
 - Reusable utility functions and test data patterns
 
-## 📸 Sample Test Screenshot
-
-> (You can add a screenshot or GIF showing a test running here)
 
 ## 📖 Future Improvements
 
